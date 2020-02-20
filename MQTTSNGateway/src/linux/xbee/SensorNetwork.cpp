@@ -36,6 +36,10 @@ SensorNetAddress::SensorNetAddress()
 {
 	memset(_address64, 0, 8);
 	memset(_address16, 0, 2);
+    /*
+     * _address64 is the zigbee extended address
+     * _address16 is the zigbee network address
+    */
 }
 
 SensorNetAddress::~SensorNetAddress()
@@ -313,8 +317,9 @@ int XBee::send(const uint8_t* payload, uint8_t pLen, SensorNetAddress* addr){
 	D_NWSTACK("\r\n===> Send:    ");
     uint8_t checksum = 0;
     _respCd = -1;
-
-    _serialPort->send(START_BYTE);
+    
+    //send(uint_8) writes a byte to the serial port
+    _serialPort->send(START_BYTE);  //Start bytes is defined to be 0x7e in .h
     send(0x00);              // Message Length
     send(14 + pLen);         // Message Length
 

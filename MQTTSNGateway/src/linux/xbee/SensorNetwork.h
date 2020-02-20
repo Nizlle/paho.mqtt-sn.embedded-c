@@ -63,7 +63,7 @@ private:
 };
 
 /*===========================================
- Class  SensorNetAddreess
+ Class  SensorNetAddreess -- Zigbee network 
  ============================================*/
 class SensorNetAddress
 {
@@ -83,7 +83,7 @@ private:
 };
 
 /*========================================
- Class XBee
+ Class XBee -- XBee zigbee implamentation
  =======================================*/
 class XBee
 {
